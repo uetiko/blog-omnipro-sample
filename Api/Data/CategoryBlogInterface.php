@@ -6,7 +6,7 @@ use DateTime;
 
 interface CategoryBlogInterface extends BlogModelDateTimeInterface
 {
-    public const TABLE_NAME = 'category_blog';
+    public const TABLE_NAME = BlogModelInterface::CATEGORY_BLOG_TABLE;
     public const ID = 'id';
     public const CATEGORY_NAME = 'category_name';
     public const CATEGORY_DESCRIPTION = 'category_description';

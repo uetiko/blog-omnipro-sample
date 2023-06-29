@@ -4,7 +4,7 @@ namespace Omnipro\Blog\Api\Data;
 
 interface CommentBlogInterface extends BlogModelDateTimeInterface
 {
-    public const TABLE_NAME = 'comment_blog';
+    public const TABLE_NAME = BlogModelInterface::COMMENT_BLOG_TABLE;
     public const ID = 'id';
     public const ARTICLE_ID = 'article_id';
     public const CUSTOMER_ID = 'entity_id';
