@@ -1,0 +1,11 @@
+"Blog Administrator","Administrador de Blog",
+"Blog Editor","Editor de Blog",
+"Blog Owner","Propietario de Blog",
+"Blog Post","Publicación de Blog",
+"Blog Post Comment","Comentario de Publicación de Blog",
+"Blog Post Comment Notification","Notificación de Comentario de Publicación de Blog",
+"Blog Post Comment Notification Email","Correo de Notificación de Comentario de Publicación de Blog",
+"CategoryBlog with id \"%1\" does not exist.","¡La CategoríaBlog con id \"%1\" no existe.",
+"Could not save the category blog: %1", "No se pudo guardar la categoría de blog: %1",
+"Could not delete the category blog: %1", "No se pudo guardar la categoría de blog: %1"
+"ArticleBlog with id \"%1\" does not exist.", "¡El ArtículoBlog con id \"%1\" no existe.",
