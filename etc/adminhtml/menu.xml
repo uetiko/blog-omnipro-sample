@@ -10,13 +10,26 @@
             resource="Magento_Backend::content"
         />
         <add
-            id="Omnipro_Blog::Blog"
-            title="Blog"
+            id="Omnipro_Blog::Articles"
+            title="Articles"
+            translate="title"
             module="Omnipro_Blog"
             sortOrder="10"
             parent="Omnipro_Blog::omni_pro"
-            action="omnipro_blog/blog"
+            action="omnipro_blog/article"
             resource="Magento_Backend::content"
+            dependsOnModule="Omnipro_Blog"
+        />
+        <add
+            id="Omnipro_Blog::Categories"
+            title="Categories"
+            translate="title"
+            module="Omnipro_Blog"
+            sortOrder="15"
+            parent="Omnipro_Blog::Articles"
+            action="omnipro_blog/category"
+            resource="Magento_Backend::content"
+            dependsOnModule="Omnipro_Blog"
         />
     </menu>
 </config>
