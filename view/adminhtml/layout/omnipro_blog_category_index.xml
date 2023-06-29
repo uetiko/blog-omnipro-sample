@@ -1,9 +1,82 @@
 <?xml version="1.0"?>
-<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column"
-      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <uiComponent name="omnipro_blog_category_grid"/>
+            <block class="Magento\Backend\Block\Widget\Container" name="omnipro_blog_category_grid_container" as="grid_container" before="-">
+                <block class="Magento\Backend\Block\Widget\Button" name="add_new_button" as="add_new_button">
+                    <arguments>
+                        <argument name="label" xsi:type="string" translate="true">Add New</argument>
+                        <argument name="class" xsi:type="string">primary</argument>
+                        <argument name="onclick" xsi:type="string">location.href = '#';</argument>
+                    </arguments>
+                </block>
+            </block>
+            <block class="Magento\Backend\Block\Widget\Grid" name="omnipro_blog_category_grid" as="grid">
+                <arguments>
+                    <argument name="id" xsi:type="string">id</argument>
+                    <argument name="dataSource" xsi:type="object">Omnipro\Blog\Model\ResourceModel\CategoryBlog\Collection</argument>
+                    <argument name="default_sort" xsi:type="string">id</argument>
+                    <argument name="default_dir" xsi:type="string">DESC</argument>
+                    <argument name="save_parameters_in_session" xsi:type="string">0</argument>
+                </arguments>
+                <block class="Magento\Backend\Block\Widget\Grid\Massaction" name="omnipro_blog_category_massaction" as="grid.massaction">
+                    <arguments>
+                        <argument name="massaction_id_field" xsi:type="string">id</argument>
+                        <argument name="form_field_name" xsi:type="string">ids</argument>
+                        <argument name="use_select_all" xsi:type="string">0</argument>
+                        <argument name="options" xsi:type="array">
+                            <item name="delete" xsi:type="array">
+                                <item name="label" xsi:type="string" translate="true">Delete</item>
+                                <item name="url" xsi:type="string">omnipro_blog/category/delete</item>
+                            </item>
+                        </argument>
+                    </arguments>
+                </block>
+                <block class="Magento\Backend\Block\Widget\Grid\ColumnSet" name="omnipro_blog_category_grid.columnSet" as="grid.columnSet">
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="id">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Category ID</argument>
+                            <argument name="index" xsi:type="string">id</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="category_name">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Category Name</argument>
+                            <argument name="index" xsi:type="string">category_name</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="category_description">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Category Description</argument>
+                            <argument name="index" xsi:type="string">category_description</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="created_at">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Created At</argument>
+                            <argument name="index" xsi:type="string">created_at</argument>
+                            <argument name="type" xsi:type="string">datetime</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Backend\Block\Widget\Grid\Column" as="updated_at">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Updated At</argument>
+                            <argument name="index" xsi:type="string">updated_at</argument>
+                            <argument name="type" xsi:type="string">datetime</argument>
+                        </arguments>
+                    </block>
+                    <block class="Omnipro\Blog\Block\Adminhtml\Widget\Grid\Category\Edit" as="action">
+                        <arguments>
+                            <argument name="header" xsi:type="string" translate="true">Action</argument>
+                            <argument name="index" xsi:type="string">id</argument>
+                            <argument name="type" xsi:type="string">text</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
         </referenceContainer>
     </body>
 </page>

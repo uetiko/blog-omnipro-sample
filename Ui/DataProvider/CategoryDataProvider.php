@@ -31,6 +31,6 @@ class CategoryDataProvider extends AbstractDataProvider
             $this->getCollection()->load();
         }
 
-        return $this->searchResult->getItems();
+        return $this->collection->getItems();
     }
 }
