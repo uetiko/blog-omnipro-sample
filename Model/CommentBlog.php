@@ -6,6 +6,11 @@ use Omnipro\Blog\Api\Data\CommentBlogInterface;
 
 class CommentBlog extends AbstractModelOmnipro implements CommentBlogInterface
 {
+    protected function _construct()
+    {
+        $this->_init(ResourceModel\CommentBlog::class);
+    }
+
     public function getId(): ?int
     {
         return $this->getDataByKey(static::ID);

@@ -8,6 +8,11 @@ use Omnipro\Blog\Api\Data\CategoryBlogInterface;
 
 class CategoryBlog extends AbstractModelOmnipro implements CategoryBlogInterface
 {
+    protected function _construct()
+    {
+        $this->_init(ResourceModel\CategoryBlog::class);
+    }
+
     public function getId(): ?int
     {
         return $this->getDataByKey(static::ID);

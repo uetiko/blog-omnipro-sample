@@ -6,6 +6,11 @@ use Omnipro\Blog\Api\Data\ArticleBlogInterface;
 
 class ArticleBlog extends AbstractModelOmnipro implements ArticleBlogInterface
 {
+    protected function _construct()
+    {
+        $this->_init(ResourceModel\ArticleBlog::class);
+    }
+
     public function getId(): ?int
     {
         return $this->getDataByKey(static::ID);
